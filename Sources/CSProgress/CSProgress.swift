@@ -1166,7 +1166,7 @@ public final class CSProgress: CustomDebugStringConvertible {
      The queue's maxConcurrentOperationCount should be set to something low to prevent excessive threads from being created.
      This parameter defaults to the main operation queue.
      */
-    private init<Count: BinaryInteger>(wrappedNSProgress: Foundation.Progress, parent: CSProgress?, pendingUnitCount: Count, granularity: Double = CSProgress.defaultGranularity, queue: OperationQueue = .main) {
+    public init<Count: BinaryInteger>(wrappedNSProgress: Foundation.Progress, parent: CSProgress?, pendingUnitCount: Count, granularity: Double = CSProgress.defaultGranularity, queue: OperationQueue = .main) {
         let backing = ObjectiveCBacking(progress: wrappedNSProgress, queue: queue)
         
         self.backing = .objectiveC(backing)
